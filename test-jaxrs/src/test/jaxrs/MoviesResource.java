@@ -59,8 +59,10 @@ public class MoviesResource {
     	
     	String RESPONSE_CONTENT = "";
         if (moviesDB.containsKey(movie.getId())) {
-            RESPONSE_CONTENT = "A movie with such id already exists!";
-            return Response.ok(RESPONSE_CONTENT).build();
+            //RESPONSE_CONTENT = "A movie with such id already exists!";
+            //return Response.ok(RESPONSE_CONTENT).build();
+            throw new MyException("A movie with such id already exists!"); 
+            
         } 
         moviesDB.put(movie.getId(), movie); 
         RESPONSE_CONTENT = "Add new moview success";
